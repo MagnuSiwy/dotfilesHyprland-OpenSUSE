@@ -10,7 +10,7 @@ sudo zypper in --no-recommends $APPS_TO_INSTALL
 
 # Link the config files to the $HOME/.config/ folder and the appearance stuff to $HOME/
 
-DOTFILES_LOCATION=$(find ~/ -name "dotfilesHyprland" -type d 2>/dev/null)
+DOTFILES_LOCATION=$(find ~/ -name "hyprdots-OpenSUSE" -type d 2>/dev/null)
 
 
 echo "Linking the config files..."
@@ -27,3 +27,6 @@ for link in $DOTFILES_LOCATION/appearance/.*
 do
     ln -s $link $HOME/
 done
+
+echo "Done!!!"
+echo "Enjoy your Hyprland-Everforest experience!"
