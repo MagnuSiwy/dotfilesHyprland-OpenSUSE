@@ -1,0 +1,122 @@
+{
+    // ------------------------- Choose the order of the modules ------------------------------
+
+    "modules-left": ["custom/calendar", "cpu", "memory", "custom/checkupdates", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "wireplumber", "bluetooth", "network", "battery", "clock"],
+    "spacing": 10,
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+
+
+    // ------------------------- Modules configuration ------------------------------
+
+    "custom/calendar": {
+        "format": "  {}",
+        "exec": "date +\"%d %b %Y\"",
+        "on-click-right": "kitty --hold --title \"Calendar\" calcurse",
+	"tooltip": false,
+    },
+
+
+    "cpu": {
+        "format": "   {usage}%",
+        "tooltip": false,
+    },
+
+
+    "memory": {
+        "format": "  {}%",
+    },
+
+
+    "custom/checkupdates": {
+	"exec": "~/.config/waybar/scripts/checkupdates.sh",
+	"restart-interval": 30,
+	"on-click": "kitty --hold --title \"Update\" yay -Syu",
+	"on-click-right": "kitty --hold --title \"Check updates\" echo script to check updates",
+	"tooltip": false,
+    },
+
+
+    "hyprland/window": {
+	"format": "{initialTitle}",
+	"rewrite": {
+	    ".*Discord": "Discord",
+	}
+    },
+
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "active-only": false,
+    },
+
+    
+    "tray": {
+    	"spacing": 10,
+	"icon-size": 13,
+    },
+
+
+    "wireplumber": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "",
+	"max-volume": 150,
+	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "format-icons": ["", "", ""]
+    },
+
+
+    "bluetooth": {
+	"format": " {device-alias}",
+	"format-disabled": "",
+	"format-off": "",
+	"format-on": "",
+	"format-connected": " {device-alias}",
+	"format-connected-battery": " {device-alias} {device_battery_percentage}%",
+	"tooltip": false,
+	"on-click-right": "blueman-manager",
+    },
+
+
+    "network": {
+        "format-wifi": "  {essid} {signalStrength}%",
+        "format-ethernet": "  {ipaddr}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "  Disconnected",
+	"tooltip": false,
+	"on-click-right": "nm-connection-editor"
+    },
+
+
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10,
+        },
+	"full-at": 96,
+        "format": "{icon}  {capacity}%",
+	"format-full": "",
+        "format-charging": " {capacity}%",
+        "format-plugged": "",
+        "format-icons": ["", "", "", "", ""],
+	"tooltip": false,
+	//"on-click": "wl-gammactl -c 0.8 -b 0.95",
+        //"on-click-right": "killall wl-gammactl",
+	"on-scroll-up": "sh ~/.config/waybar/scripts/brightness.sh up",
+	"on-scroll-down": "sh ~/.config/waybar/scripts/brightness.sh down",
+	"on-click": "sh ~/.config/waybar/scripts/brightness.sh click",
+	"on-click-right": "sh ~/.config/waybar/scripts/brightness.sh click-right",
+    },
+
+
+    "clock": {
+        "timezone": "Europe/Warsaw",
+	"format": "  {:%H:%M}",
+	"tooltip": false,
+	"on-click-right": "kitty --hold --title \"Calendar\" calcurse",
+    },
+}

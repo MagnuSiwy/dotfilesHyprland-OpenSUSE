@@ -1,0 +1,109 @@
+* {
+    font-family: Roboto, "Font Awesome 6 Free";
+    font-size: 13px;
+}
+
+#window {
+    padding: 0 10px;
+    margin-top: 2px;
+    background-color: #1e2326;
+    border-radius: 20px;
+    color: #d3c6aa;
+}
+
+#waybar.empty #window {
+    background: none;
+}
+
+#custom-calendar, #cpu, #memory, #custom-checkupdates, #workspaces, #tray, #wireplumber, #bluetooth, #network, #battery, #clock {
+    padding: 0 10px;
+    margin: 2px 0 0 0;
+    background-color: #1e2326;
+    border-radius: 20px;
+    border: 1px solid #7a8478;
+    color: #d3c6aa;
+}
+
+#custom-calendar {
+    margin-left: 4px;
+}
+
+
+#custom-powerOff {
+    color: #e67e80;
+    margin: 0 2px 0 2px;
+    background: none;
+}
+
+#custom-exitHyprland {
+    background: none;
+    padding: 0 10px;
+    margin: 0 2px 0 2px;
+}
+
+#custom-reboot {
+    margin: 0 2px 0 2px; 
+    padding: 0 10px;
+    background: none;
+}
+
+@keyframes bt_discoverable {
+    to {
+        color: #d3c6aa;
+    }
+}
+
+#bluetooth.on {
+    color: #859289;
+}
+
+#bluetooth.discoverable {
+    animation-name: bt_discoverable;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock {
+    margin-right: 4px;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    border-radius: 10px;
+    color: #d3c6aa;
+    margin: 0 2px;
+}
+
+#workspaces button:hover {
+    background-color: #374145;
+}
+
+#workspaces button.active {
+    background-color: #3d4841;
+    color: #a7c080;
+}
+
+#workspaces button.urgent {
+    background-color: #e67e80;
+}
+
+@keyframes critical_bat {
+    to {
+        background-color: #e67e80;
+        color: #1e2326;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: critical_bat;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+window#waybar {
+    background-color: transparent;
+}
